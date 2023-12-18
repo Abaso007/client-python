@@ -55,7 +55,7 @@ class ClientBase(ABC):
     ) -> None:
         if "object" not in json_response:
             raise MistralException(message=f"Unexpected response: {json_response}")
-        if "error" == json_response["object"]:  # has errors
+        if json_response["object"] == "error":  # has errors
             raise MistralAPIException(
                 message=json_response["message"],
                 http_status=status,
