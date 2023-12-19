@@ -15,8 +15,7 @@ class MistralException(Exception):
         self.message = message
 
     def __str__(self) -> str:
-        msg = self.message or "<empty message>"
-        return msg
+        return self.message or "<empty message>"
 
     def __repr__(self) -> str:
         return f"{self.__class__.__name__}(message={str(self)})"
